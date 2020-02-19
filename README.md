@@ -1,1 +1,1 @@
-# GPI II
+# GPI II Proyecto individual
