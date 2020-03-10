@@ -6,8 +6,13 @@ package es.unavarra.gpi2;
  */
 public class App 
 {
+	private static String hola = "Hello World!";
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println( hola );
     }
+    
+     static public String obtenerHola(){
+		return hola;
+	}
 }
