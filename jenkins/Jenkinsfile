@@ -1,0 +1,27 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Clonar repositorio') {
+         steps {
+             git 'https://github.com/martinez116497/gpiii/'
+         }
+      }
+      stage('Sistema de integracion') {
+         steps {
+            sh "mvn -f Sistema_Integracion/simple/pom.xml verify"
+         }
+      }
+      stage('Aplicacion android') {
+         steps {
+            sh "cd Aplicacion_Android/ActivityA116497/ && ./gradlew clean assembleDebug"
+         }
+      }       
+      stage('Sensores') {
+         steps {
+            sh "make -C Sensores/FooProject/"
+         }
+      }
+   }
+
+}
